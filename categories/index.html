@@ -602,11 +602,9 @@ function showTime() {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-					$(document.getElementById(url)).text(content);
-				}
+				var object = results[0];
+				var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+				$(document.getElementById(url)).text(content);
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -660,11 +658,7 @@ function addCount() {
 	});
 }
 $(function() {
-	if ($('.leancloud_visitors').length == 1) {
-		addCount();
-	} else if ($('.post-title-link').length > 1) {
-		showTime();
-	}
+	addCount();
 }); 
 </script>
 
